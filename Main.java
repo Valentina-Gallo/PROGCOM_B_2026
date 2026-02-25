@@ -8,23 +8,38 @@ Write your code in this editor and press "Run" button to execute it.
 
 import java.util.Scanner;
 
-public class Main { 
+public class Main {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-
-        System.out.print("Introduce la base: ");
-        double base = teclado.nextDouble();
-
-        System.out.print("Introduce la altura: ");
-        double altura = teclado.nextDouble();
-
-        // El operador ternario sigue igual
-        double area = (base > 0 && altura > 0) ? (base * altura) / 2 : 0;
-
-        System.out.println((area > 0) 
-            ? "El área es: " + area 
-            : "Datos inválidos.");
         
-        teclado.close();
+        System.out.println("¿Cuál es tu edad?"); // impresión
+        Scanner edad = new Scanner(System.in); // creando un input
+        
+        // nextLine sirve para leer textos
+        // nextInt sirve para leer enteros
+        // nextFloat sirve para leer flotante (decimales)
+        int age = edad.nextInt();
+        
+        if (age < 10) {
+            System.out.println("Aún eres un niño");
+        } else {
+            // Si no es menor de 10, entra y vuelve a preguntar
+            if (age >= 10 && age < 14) {
+                System.out.println("Eres un preadolescente");
+            } else {
+                // Si tampoco es preadolescente, entra y vuelve a preguntar
+                if (age >= 14 && age < 18) {
+                    System.out.println("Eres un adolescente");
+                } else {
+                    // Y sucesivamente
+                    if (age >= 18 && age < 30) {
+                        System.out.println("Eres un adulto joven");
+                    } else {
+                        System.out.println("Eres un adulto");
+                    }
+                }
+            }
+        }
+        
+        
     }
 }
